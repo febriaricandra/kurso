@@ -1,0 +1,10 @@
+💽 [DATABASE] SUCCESS Connected to MongoDB!
+🚀 [SERVER] is running on port http://localhost:8000
+💽 [DATABASE] SUCCESS Connected to MongoDB!
+🚀 [SERVER] is running on port http://localhost:8000
+GET / - 9ms
+::1 - - [08/Nov/2022:09:52:41 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36"
+GET /test - 10ms
+::1 - - [08/Nov/2022:09:52:50 +0000] "GET /test HTTP/1.1" 404 45 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36"
+GET / - 2ms
+::1 - - [08/Nov/2022:09:53:04 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36"
