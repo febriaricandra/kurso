@@ -6,6 +6,7 @@ const morgan = require("morgan");
 const app = express();
 
 const rootRouter = require("./routes/root/root.router");
+const courseRouter = require("./routes/course/course.router");
 
 app.use(
   cors({
@@ -22,7 +23,7 @@ app.use((req, res, next) => {
 });
 
 app.use("/", rootRouter);
-
+app.use("/api/course", courseRouter);
 app.use(notFound);
 
 module.exports = app;
