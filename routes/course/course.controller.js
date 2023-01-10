@@ -41,9 +41,44 @@ const getCourseById = async (req, res) => {
     }
 }
 
-// @route   POST api/course
-// @desc    Create a course
-// @access  Private
+const getCoursePartsId = async (req, res) => {
+    try {
+        const course = await Course.findById(req.params.id);
+        if (!course) {
+            return res.status(404).json({
+                statusCode: 404,
+                message: "Course not found",
+            });
+        }
+        res.status(200).json({
+            statusCode: 200,
+            message: "success fetching course parts",
+            data: course.parts,
+        });
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send("Server Error");
+    }
+}
+const getCourseByIdParts = async (req, res) => {
+    try {
+        const course = await Course.findById(req.params.id);
+        if (!course) {
+            return res.status(404).json({
+                statusCode: 404,
+                message: "Course not found",
+            });
+        }
+        res.status(200).json({
+            statusCode: 200,
+            message: "success fetching course parts id",
+            data: course.parts.id(req.params.part_id),
+        });
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send("Server Error");
+    }
+}
 const createCourse = async (req, res) => {
     const { title, description, image, parts } = req.body;
     try {
@@ -204,6 +239,8 @@ const deleteCourseParts = async (req, res) => {
 module.exports = {
     getAllCourses,
     getCourseById,
+    getCoursePartsId,
+    getCourseByIdParts,
     createCourse,
     createCourseParts,
     updateCourse,
