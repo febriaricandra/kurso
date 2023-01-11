@@ -8,6 +8,7 @@ const app = express();
 const rootRouter = require("./routes/root/root.router");
 const courseRouter = require("./routes/course/course.router");
 const authRouter = require("./routes/auth/auth.router");
+const enrollRouter = require("./routes/enroll/enroll.router");
 const { auth } = require("./middlewares/jwt");
 
 app.use(
@@ -27,6 +28,7 @@ app.use((req, res, next) => {
 app.use("/", rootRouter);
 app.use("/api/course", courseRouter);
 app.use("/api/auth", authRouter);
+app.use("/api/enroll", enrollRouter);
 app.use(auth);
 app.use(notFound);
 
