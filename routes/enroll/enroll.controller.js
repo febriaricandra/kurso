@@ -8,21 +8,21 @@ const enrollCourse = async(req,res) => {
         const user = await User.findById(userId);
         const course = await Course.findById(courseId);
         if(!user || !course) {
-            return res.status(400).json({ msg: "User or course not found" });
+            return res.status(400).json({ message: "User or course not found" });
         }
         if(!user.courses) user.courses = [];
         if(user.courses.includes(courseId)) {
-            return res.status(400).json({ msg: "User already enrolled in this course" });
+            return res.status(400).json({ message: "User already enrolled in this course" });
         }
         user.courses.push(courseId);
         await user.save();
         return res.status(200).json({
             statusCode: 200,
-            msg: "User enrolled in course" 
+            message: "User enrolled in course" 
         });
     } catch (error) {
         console.log(error);
-        return res.status(500).json({ msg: "Server error" });
+        return res.status(500).json({ message: "Server error" });
     }
 }
 
