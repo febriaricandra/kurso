@@ -59,6 +59,7 @@ const signin = async (req, res, next) => {
         res.status(200).json({
           message: "Successfully signed in",
           email: user.email,
+          role: user.role,
           data: token,
         });
       } else {
